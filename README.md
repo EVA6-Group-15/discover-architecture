@@ -46,8 +46,8 @@ So, the target of **99.4%** is acheived in 6 iterations
 ![network_32](images/network_32.png)
 |Layer No.|Operation|Input Feat.|Kernel Size|Padding|Stride|Output Feat.|Jump in|Jump Out|RF in|RF Out|
 |:-------:|:-------:|:---------:|:---------:|:-----:|:----:|:----------:|:-----:|:------:|:---:|:----:|
-|1|Conv2d|28|3|1|1|28|1|1|1|3|
-|2|Conv2d|28|3|1|1|28|1|1|3|5|
+|1|Conv2d|28|3|**1**|1|28|1|1|1|3|
+|2|Conv2d|28|3|**1**|1|28|1|1|3|5|
 |3|MaxPool|28|2|0|2|14|1|2|5|6|
 |4|Conv2d|14|3|0|1|12|2|2|6|10|
 |5|Conv2d|12|3|0|1|10|2|2|10|14|
