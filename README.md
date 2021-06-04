@@ -90,26 +90,71 @@ We have seen from Incorrect classified images, the issue looks like the numbers 
 *No. of Epochs*: 14  
 #### Results:
 *Total Parameters Used*: 7,826  
-*Train Accuracy*: 99.25  
-*Test Accuracy*: **99.29**  
+*Train Accuracy*: 98.73  
+*Test Accuracy*: **99.36**  
 *Consistent From*: Consistent at *99.25-99.3*  
 *Data Augmentation*: None
 #### Analysis
-We have used DropOut of 5%, which is like dropping 5 out of 100 weights after each layer.
+We have used DropOut of 5%, after each layer and along with that now we are virtually increasing our dataset by adding agumentation, here we are using RandomRotation, which rotates iamges randomly between ±15°.
 
-We can observe that, the over-fitting issue has been resolved, as clearly both the Test Loss and Accuracy of the Model are higher than the Training Loss and Accuracy, so which means there is still Learning opportunities and we can puish the training further and get better Test Accuracies.
+We have even decreased the training accuracy, and increased test accuracy by using Augmentation, which is a good sign.
 
-Also, when observing the Confusion Matrix and the Incorrect Identified Images above, we can see that the Model is confusing between 0 and 6 as there are quite high incorrect prediction of 6 as 0's. Same with 2 and 7.
-
-So, we can now bring some Data Augmentation techniques to Randomly Rotate images while Training, and with some estimation the Rotations look between ±15°.
+But the Test Loss as we observe is not stable and is bouncing from 0.21 to 0.25 and not converging. So the Learning Rate of 0.01 may be too big at this point which is from epoch 6/7.  
+So using some kind of Dynamic LR would be effecient.
 
 ### 5. LR Schedulers - To Stabalize Network.
 <img src="images/04_lr.jpg" width="400">
 
+#### Targets:
+To converge the Loss, the LR of 0.01 is may be not the correct way, but using lower LR may take ages, so we will use a LR Scheduler, in particular StepLR to reduce the Lr after certain number of epochs, where we feel the Loss is bouncing.
+
+*Parameters*: Less than 8,000  
+*Data Augmentations*: RandomRotation ±15°  
+*Regularization*: DropOut  
+*LR Scheduler*: StepLR  
+*No. of Epochs*: 14
+#### Results:
+*Total Parameters Used*: 7,826  
+*Train Accuracy*: 99.165  
+*Test Accuracy*: **99.48**  
+*Consistent From*: **7th Epoch to End**  
+*Data Augmentation*: Randam Rotation of ±15°  
+*LR Scheduler*: StepLR
+#### Analysis
+The StepLR helped in stabilizing the learning, by reducing the learning rate to 10% after every 6th Epochs.
+
+Why after every 6 epochs?  
+We observed that the Loss was bouncing up and down, from 6th/7th epoch, so reducing the LR at that point would made the training stable.
+
+And we can clearly see that the Accuracy/Loss in Testing is Bouncing heavily in the first 6 epochs, and after 6 epochs as we bring down the Learning Rate to 10% which is 0.001, the traning is stabilized and the loss as well as as Accuracy is pretty much stable and converging slowly from **99.39** at Epoch 7 to **99.48** by end of Training
+
+So the use of LR, has brough stabilization to the training process, *but selecting the correct epoch to reduce LR is challenging task and is human-controlled so need's fine-tuning and several trials before getting it right.*
+
+We have acheived the Final target of consistently getting 99.4% Test Accuracy, for half the epochs, proving very good convergence of the model.
+
+But, we calculated the Receptive Field of the Model, and it's at 28, we wanted to see what happens when we increase the RF from 28 to 32, by adding one more Conv2f layer, but in effect keeping same number of total parameters.
+
+
 ### 6. Increasing Receptive Field - Why Stop at 28x28, Let's go Hihger.    
 <img src="images/05_rf.png" width="400">
 
+#### Targets:
+To create a model with higher Recpetive Field than 28
 
+*Parameters*: Less than 8,000  
+*Data Augmentations*: RandomRotation ±15°  
+*Regularization*: DropOut  
+*LR Scheduler*: StepLR  
+*No. of Epochs*: 14
+#### Results:
+*Total Parameters Used*: 7,946  
+*Train Accuracy*: 99.2  
+*Test Accuracy*: **99.51**  
+*Consistent From*: *7th Epoch to End*  
+*Data Augmentation*: Randam Rotation of ±15°  
+*LR Scheduler*: StepLR
+#### Analysis
+The Increase in Receptive Field may have helped, as we were able to cross the **99.5%** barrier and the model is even more stable now
 
 ## Receptive Field
 
