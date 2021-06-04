@@ -10,6 +10,22 @@ So, the target of **99.4%** is acheived in 6 iterations
 ### 1. Bare Skeleton Model - To check whether model is training or not.  
 <img src="images/00_skeleton.jpg" width="400">
 
+#### Targets:
+To create a basic skeleton of the the model, and check Learning Capabilities.  
+**Parameters:** Less than 10,000  
+**Data Augmentations:** None  
+**Regularization**: None  
+**LR Scheduler**: None  
+**No. of Epochs**: 14  
+#### Results:
+**Total Parameters Used**: 9,714  
+**Train Accuracy**: 99.5  
+**Test Accuracy**: **99.31**  
+**Consistent From**: Not Consistent  
+**Data Augmentation**: None
+#### Analysis
+The model is learning as we see that the training accuracy is going to 99.5, which is a good indicator initially, to continue on the skeleton of the model, and work on it to improve the Test Accuracy, as we see there is clearly Over fitting happening.
+
 ### 2. Lighter Model - Reduce No. of Parameters to 8000.  
 <img src="images/01_lighter.png" width="400">
 
