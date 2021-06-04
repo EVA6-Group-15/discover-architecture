@@ -30,6 +30,7 @@ So, the target of **99.4%** is acheived in 6 iterations
 ## Receptive Field
 
 ### Model 1:
+![network_28](images/network_28.png)
 |Layer No.|Operation|Input Feat.|Kernel Size|Padding|Stride|Output Feat.|Jump in|Jump Out|RF in|RF Out|
 |:-------:|:-------:|:---------:|:---------:|:-----:|:----:|:----------:|:-----:|:------:|:---:|:----:|
 |1|Conv2d|28|3|0|1|26|1|1|1|3|
@@ -42,6 +43,7 @@ So, the target of **99.4%** is acheived in 6 iterations
 |8|GAP|4|4|0|1|1|2|2|22|28|
 
 ### Model 2:
+![network_32](images/network_32.png)
 |Layer No.|Operation|Input Feat.|Kernel Size|Padding|Stride|Output Feat.|Jump in|Jump Out|RF in|RF Out|
 |:-------:|:-------:|:---------:|:---------:|:-----:|:----:|:----------:|:-----:|:------:|:---:|:----:|
 |1|Conv2d|28|3|1|1|28|1|1|1|3|
