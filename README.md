@@ -1,4 +1,4 @@
-# CodeCodeCode
+# Discover Network Architectures
 
 ## Objective
 In iterative fashion, step by step, using one concept at a time, acheive **99.4%** Validation Accuracy **consistently** on MNIST Dataset with in **15 epochs** and in under **10,000 paramaters**, even better if it's below **8,000 parameters**
@@ -16,7 +16,7 @@ To create a basic skeleton of the the model, and check Learning Capabilities.
 *Data Augmentations:* None  
 *Regularization*: None  
 *LR Scheduler*: None  
-*No. of Epochs*: 14  
+*No. of Epochs*: 14
 #### Results:
 *Total Parameters Used*: 9,714  
 *Train Accuracy*: 99.5  
