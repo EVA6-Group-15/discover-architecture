@@ -1,7 +1,7 @@
 # CodeCodeCode
 
 ## Objective
-In iterative fashion, step by step, using one concept at a time, acheive **99.4%** Validation Accuracy **consistently** on MNIST Dataset with in **15 epochs** and in under **10,000 paramaters**.
+In iterative fashion, step by step, using one concept at a time, acheive **99.4%** Validation Accuracy **consistently** on MNIST Dataset with in **15 epochs** and in under **10,000 paramaters**, even better if it's below **8,000 parameters**
 
 ## Approach
 So, the target of **99.4%** is acheived in 6 iterations
